@@ -3,13 +3,6 @@
  *
  * https://refactoring.guru/ru/design-patterns/strategy/typescript/example
  */
-
-/**
- * Strategy
- *
- * https://refactoring.guru/ru/design-patterns/strategy/typescript/example
- */
-
 const stocksInUSA = ['Microsoft', 'Tesla', 'Google'];
 const stocksInEurope = ['BMW', 'Ferarri'];
 const stocksInKyrgyzstan = ['Shoro'];
