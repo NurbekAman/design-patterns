@@ -66,21 +66,19 @@ FlatConfirmation.prototype.createConfirmation = function() {
 }
 
 
-function getConfirmation(type, data) {
-  let confirmation;
-  if (type === 'flat') {
-    confirmation = new FlatConfirmation(data);
+function Processor(fabric) {
+  const confirmation = fabric.createConfirmation();
+
+  const createUI = () => {
+    console.log('draw someting');
+    confirmation.render();
+    console.log('draw other part');
   }
 
-  if (type === 'modal') {
-    confirmation = new ModalConfirmation(data);
-  }
-
-  return confirmation.createConfirmation();
+  return { createUI };
 }
 
-const flatConfirmation = getConfirmation('flat', { type: 'type1', data: 'someData' });
-const modalConfirmation = getConfirmation('modal', { type: 'type2', data: 'someData' });
-
-flatConfirmation.render();
-modalConfirmation.render();
+const actionProcessor = Processor(new FlatConfirmation({ type: 'type1' }));
+actionProcessor.createUI();
+const modalProcessor = Processor(new ModalConfirmation({ type: 'type2' }));
+modalProcessor.createUI();
